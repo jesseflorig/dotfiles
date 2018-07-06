@@ -5,6 +5,6 @@
 DOTFILES=(".zshrc" ".vimrc" ".tmux.conf")
 REPO="${HOME}/Repos/dotfiles"
 
-for dotfile in "$DOTFILES[@]";do
-  ln -sf "${HOME}/${dotfile}" "${REPO}"
+for dotfile in "${DOTFILES[@]}";do
+  ln -sf "${REPO}/${dotfile}" "${HOME}"
 done
