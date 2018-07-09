@@ -154,6 +154,7 @@ alias repos="cd ~/Repos"
 alias downloads="cd ~/Downloads"
 
 # Dataviser
+alias dvinit="~/.tmux.scripts/dataviser.sh"
 alias cdv="cd ~/Repos/dataviser"
 alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
 alias sshdv="ssh -L 9200:elastic01:9200 bastion01"
