@@ -20,13 +20,13 @@ My `.zshrc` file contains the alias `dotfiles` for managing the GIT repo from th
 
 ## Setup
 
-As long as you have access to Github, setup should be painless.
+As long as you have access to Github, setup should be painless:
 
-  1. Clone the repo to your `$HOME/.dotfiles` directory:
+  1. Clone the repo to your `$HOME/.dotfiles` directory
   ```
   git clone git@github.com:jesseflorig/dotfiles.git $HOME/.dotfiles
   ```
-  2. Checkout the config files from your local repo to your `$HOME` directory:
+  2. Checkout the config files from your local repo to your `$HOME` directory
   ```
   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
   ```
