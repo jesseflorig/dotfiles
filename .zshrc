@@ -51,6 +51,7 @@ export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
 export PATH="~/Library/Python/2.7/bin:"$PATH
 export ZSH=/Users/jesse/.oh-my-zsh
+export TERM=xterm-256color
 
 ################################################################################
 # Plugins
@@ -155,6 +156,7 @@ alias downloads="cd ~/Downloads"
 
 # Dataviser
 alias dvinit="~/.tmux.scripts/dataviser.sh"
+alias dvkill="tmux kill-session -t dataviser"
 alias cdv="cd ~/Repos/dataviser"
 alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
 alias sshdv="ssh -L 9200:elastic01:9200 bastion01"
