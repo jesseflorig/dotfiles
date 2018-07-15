@@ -1,49 +1,24 @@
 ################################################################################
 # zshrc @ jesse
 ################################################################################
-# - Options
-# - Remaps
-# - Variables
-# - Sources
-# - Plugins
-# - Exports
-# - Helper Functions
-# - Aliases
-# - Settings
-################################################################################
 
-################################################################################
 # Options
 ################################################################################
-
 setopt prompt_subst
 unsetopt correct_all
 
-################################################################################
-# Options
-################################################################################
-
-#remap  ] :cnext<CR>
-#remap  [ :cprevious<CR>
-
-################################################################################
 # Variables
 ################################################################################
-
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
-################################################################################
 # Sources
 ################################################################################
-
 source ~/.oh-my-zsh/oh-my-zsh.sh
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/bin/virtualenvwrapper.sh
 
-################################################################################
 # Exports
 ################################################################################
-
 export EDITOR='vim'
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
@@ -53,10 +28,8 @@ export PATH="~/Library/Python/2.7/bin:"$PATH
 export ZSH=/Users/jesse/.oh-my-zsh
 export TERM=xterm-256color
 
-################################################################################
 # Plugins
 ################################################################################
-
 plugins=(
   bower
   brew
@@ -72,10 +45,9 @@ plugins=(
   yarn
 )
 
-################################################################################
 # Helper Functions
 ################################################################################
-
+# TODO: Figure out how to make these update after init
 hello(){ # Greeting
   echo Hello ${1:-World}
 }
@@ -124,11 +96,9 @@ brave(){ # Open file in Brave
   open -a "Brave" $1
 }
 
-################################################################################
 # Aliases
 ################################################################################
-
-# Commands
+## Commands
 alias vi="vim"
 alias ll="ls -alh" # show all with human readable sizes
 alias lls="ll -S"  # sort by file size
@@ -138,23 +108,23 @@ alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias htb="sudo openvpn --config ~/Downloads/jesseflorig.ovpn"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
-# Configs
+## Configs
 alias src="source ~/.zshrc"
 alias brc="vi ~/.bashrc"
 alias zrc="vi ~/.zshrc"
 alias vrc="vi ~/.vimrc"
 alias trc="vi ~/.tmux.conf"
 
-# Dotfiles management
+## Dotfiles management
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias dotfilesinit="dotfiles config --local status.showUntrackedFiles no"
 
-# Directories
+## Directories
 alias docs="cd ~/Dropbox/Documents"
 alias repos="cd ~/Repos"
 alias downloads="cd ~/Downloads"
 
-# Dataviser
+## Dataviser
 alias dvinit="~/.tmux.scripts/dataviser.sh"
 alias dvkill="tmux kill-session -t dataviser"
 alias cdv="cd ~/Repos/dataviser"
@@ -162,14 +132,12 @@ alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
 alias sshdv="ssh -L 9200:elastic01:9200 bastion01"
 
 
-# Misc
+## Misc
 alias restart="sudo shutdown -r now"
 alias esrun="repos && cd elasticsearch/bin && elasticsearch"
 
+# Variables
 ################################################################################
-# Settings
-################################################################################
-
 ZSH_THEME="mh"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
