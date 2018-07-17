@@ -47,11 +47,6 @@ plugins=(
 
 # Helper Functions
 ################################################################################
-# TODO: Figure out how to make these update after init
-hello(){ # Greeting
-  echo Hello ${1:-World}
-}
-
 user_emoji(){
   case $1 in
     jesse)
@@ -79,11 +74,14 @@ host_emoji(){
 
 path_emoji(){
   case $1 in
+    /)
+      echo 🌱
+      ;;
     /Users/jesse)
       echo 🏠
       ;;
     *)
-      echo \:$1\$
+      echo %~
       ;;
   esac
 }
@@ -151,6 +149,6 @@ local ps=" "                       # prompt string
 
 local ue=$(user_emoji $(whoami))
 local he=$(host_emoji $(hostname -s))
-local pe=$(path_emoji $(pwd))
+#local pe=$(path_emoji %~)
 
-PROMPT='${ue}${he}${wd}${ps}'
+PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
