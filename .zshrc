@@ -152,3 +152,5 @@ local he=$(host_emoji $(hostname -s))
 #local pe=$(path_emoji %~)
 
 PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

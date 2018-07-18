@@ -20,29 +20,45 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " VIM plugins
+" Use :PlugInstall after updating
 call plug#begin('~/.vim/plugged')
-  Plug 'scrooloose/nerdtree'
-  Plug 'itchyny/lightline.vim'
-  Plug 'ap/vim-buftabline'
-  Plug 'mattn/emmet-vim'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'qpkorr/vim-bufkill'
+  Plug 'scrooloose/nerdtree'          " File viewer
+  Plug 'itchyny/lightline.vim'        " Status line
+  Plug 'ap/vim-buftabline'            " Buffer tabs
+  Plug 'mattn/emmet-vim'              " Emmet shorthands
+  Plug 'Xuyuanp/nerdtree-git-plugin'  " Git file statuses
+  Plug 'qpkorr/vim-bufkill'           " Buffer killer (?)
+  Plug 'rking/ag.vim'                 " Silver searcher
+  "Plug 'mileszs/ack.vim'              " Silver Searcher alt
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'             " Fuzzy finder
 call plug#end()
 
 " Hotkeys
 map <C-n> :NERDTreeToggle<CR>
+" Buffer navigation
 nmap < :bprev<CR>
 nmap > :bnext<CR>
-
+" Vimgrep navigation
 nmap { :cprev<CR>
 nmap } :cnext<CR>
-
+" Vim pane navigation
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 nmap <C-H> <C-W><C-H>
+" FZF
+nmap <C-X> :Files<CR>
+nmap <C-C> :bd<CR>
 
 let g:user_emmet_leader_key='<C-Z>'
+
+" Convert Ack to Ag
+"let g:ackprg = 'ag --vimgrep --smart-case'                                                   
+"cnoreabbrev ag Ack                                                                           
+"cnoreabbrev aG Ack                                                                           
+"cnoreabbrev Ag Ack                                                                           
+"cnoreabbrev AG Ack  
 
 " Auto Commands
 autocmd StdinReadPre * let s:std_in=1
