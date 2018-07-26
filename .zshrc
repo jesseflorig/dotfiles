@@ -127,7 +127,7 @@ alias dvinit="~/.tmux.scripts/dataviser.sh"
 alias dvkill="tmux kill-session -t dataviser"
 alias cdv="cd ~/Repos/dataviser"
 alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
-alias sshdv="ssh -L 9200:elastic01:9200 bastion01"
+alias sshdv="ssh bastion01"
 
 
 ## Misc

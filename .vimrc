@@ -28,10 +28,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/emmet-vim'              " Emmet shorthands
   Plug 'Xuyuanp/nerdtree-git-plugin'  " Git file statuses
   Plug 'qpkorr/vim-bufkill'           " Buffer killer (?)
-  Plug 'rking/ag.vim'                 " Silver searcher
-  "Plug 'mileszs/ack.vim'              " Silver Searcher alt
+  Plug 'ggreer/the_silver_searcher'   " Silver searcher
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'             " Fuzzy finder
+  Plug 'pangloss/vim-javascript'      " JSX prereq
+  Plug 'mxw/vim-jsx'                  " JSX highlighter
 call plug#end()
 
 " Hotkeys
