@@ -124,11 +124,12 @@ alias downloads="cd ~/Downloads"
 
 ## Dataviser
 alias dvinit="~/.tmux.scripts/dataviser.sh"
-alias dvkill="tmux kill-session -t dataviser"
 alias cdv="cd ~/Repos/dataviser"
 alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
 alias sshdv="ssh bastion01"
 
+# TMUX
+alias tkill="tmux kill-session -t $1"
 
 ## Misc
 alias restart="sudo shutdown -r now"
