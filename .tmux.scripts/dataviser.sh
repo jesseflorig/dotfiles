@@ -13,6 +13,7 @@
 SESSION_NM=dataviser
 WINDOW_NM=main
 EDIT_CMD="cdv && deactivate && vi"
+LOCAL_ES_CMD="~/Repos/elasticsearch-5.6.7/bin/elasticsearch"
 TUNNEL_CMD="sshdv"
 RUN_CMD="cdv && workon dataviser && make run"
 SERVE_CMD="cdv && deactivate && make serve"
@@ -31,7 +32,8 @@ then
   tmux new -s $SESSION_NM -n $WINDOW_NM -d # create new detached session with named window
   send-command "$EDIT_CMD"                 # start vim
   split "h"
-  send-command "$TUNNEL_CMD"               # setup backend tunnel
+  send-command "$LOCAL_ES_CMD"             # start local ES
+  #send-command "$TUNNEL_CMD"               # setup backend tunnel
   split "v"
   send-command "$RUN_CMD"                  # start flask
   split "v"
