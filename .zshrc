@@ -129,7 +129,10 @@ alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
 alias sshdv="ssh bastion01"
 
 # TMUX
+alias tmake="tmux new -s $1"
 alias tkill="tmux kill-session -t $1"
+alias tls="tmux ls"
+alias ta="tmux attach -t $1"
 
 ## Misc
 alias restart="sudo shutdown -r now"
