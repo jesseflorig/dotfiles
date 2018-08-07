@@ -33,6 +33,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'             " Fuzzy finder
   Plug 'pangloss/vim-javascript'      " JSX prereq
   Plug 'mxw/vim-jsx'                  " JSX highlighter
+  Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 call plug#end()
 
 " Hotkeys
