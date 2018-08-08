@@ -12,12 +12,18 @@ set backspace=indent,eol,start
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set noshowmode
 
-" Vim plug auto-load
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
-endif
+" Statusline
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 " VIM plugins
 " Use :PlugInstall after updating
@@ -33,24 +39,27 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'             " Fuzzy finder
   Plug 'pangloss/vim-javascript'      " JSX prereq
   Plug 'mxw/vim-jsx'                  " JSX highlighter
-  Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+  Plug 'vim-syntastic/syntastic'      " Linting
+  Plug 'sbdchd/neoformat'             " Prettier
 call plug#end()
 
 " Hotkeys
 map <C-n> :NERDTreeToggle<CR>
+
 " Buffer navigation
 nmap < :bprev<CR>
 nmap > :bnext<CR>
+
 " Vimgrep navigation
 nmap { :cprev<CR>
 nmap } :cnext<CR>
+
 " Vim pane navigation
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-L> <C-W><C-L>
 nmap <C-H> <C-W><C-H>
+
 " FZF
 nmap <C-X> :Files<CR>
 nmap <C-C> :bd<CR>
@@ -67,3 +76,11 @@ let g:user_emmet_leader_key='<C-Z>'
 " Auto Commands
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat
+
+" Vim plug auto-load
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+endif
