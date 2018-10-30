@@ -135,6 +135,7 @@ alias tls="tmux ls"
 alias ta="tmux attach -t $1"
 
 ## Misc
+alias cht="curl cht.sh"
 alias restart="sudo shutdown -r now"
 alias esrun="repos && cd elasticsearch/bin && elasticsearch"
 

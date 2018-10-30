@@ -25,6 +25,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
+"Neoformat
+let g:neoformat_try_formatprg = 1
+
 " VIM plugins
 " Use :PlugInstall after updating
 call plug#begin('~/.vim/plugged')
@@ -66,17 +69,19 @@ nmap <C-C> :bd<CR>
 
 let g:user_emmet_leader_key='<C-Z>'
 
-" Convert Ack to Ag
-"let g:ackprg = 'ag --vimgrep --smart-case'                                                   
-"cnoreabbrev ag Ack                                                                           
-"cnoreabbrev aG Ack                                                                           
-"cnoreabbrev Ag Ack                                                                           
-"cnoreabbrev AG Ack  
-
 " Auto Commands
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat
+
+" Neoformat Prettier
+augroup NeoformatAutoFormat
+  autocmd!
+  autocmd FileType javascript setlocal formatprg=prettier\
+                                          \--stdin\
+                                          \--print-width\ 80\
+                                          \--no-semi\
+
+  autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.json Neoformat
+augroup END
 
 " Vim plug auto-load
 if empty(glob('~/.vim/autoload/plug.vim'))
