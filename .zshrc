@@ -128,7 +128,18 @@ alias cdv="cd ~/Repos/dataviser"
 alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
 alias sshdv="ssh bastion01"
 
-# TMUX
+## Rhaegal
+alias rhaegal="cd ~/Repos/rhaegal"
+alias rstart="source ~/Repos/rhaegal/venv/bin/activate && \
+  ~/Repos/rhaegal/bin/run.sh"
+alias rlint="~/Repos/rhaegal/bin/lint.sh"
+alias rtest="~/Repos/rhaegal/bin/test.sh"
+
+## Viserion
+alias viserion="cd ~/Repos/viserion"
+alias vstart="npm start"
+
+## TMUX
 alias tmake="tmux new -s $1"
 alias tkill="tmux kill-session -t $1"
 alias tls="tmux ls"
