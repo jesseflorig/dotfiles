@@ -21,7 +21,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 ################################################################################
 export EDITOR='vim'
 export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:"$PATH
+export PATH="/usr/local/opt:"$PATH
 export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
 export PATH="~/Library/Python/2.7/bin:"$PATH
@@ -130,6 +132,8 @@ alias sshdv="ssh bastion01"
 
 ## Rhaegal
 alias rhaegal="cd ~/Repos/rhaegal"
+alias rupdate="source ~/Repos/rhaegal/venv/bin/activate && \
+  ~/Repos/rhaegal/bin/setup.sh"
 alias rstart="source ~/Repos/rhaegal/venv/bin/activate && \
   ~/Repos/rhaegal/bin/run.sh"
 alias rlint="~/Repos/rhaegal/bin/lint.sh"
@@ -137,7 +141,8 @@ alias rtest="~/Repos/rhaegal/bin/test.sh"
 
 ## Viserion
 alias viserion="cd ~/Repos/viserion"
-alias vstart="npm start"
+alias vupdate="viserion && npm i"
+alias vstart="viserion && npm start"
 
 ## TMUX
 alias tmake="tmux new -s $1"
