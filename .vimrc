@@ -6,11 +6,12 @@
 syntax on
 
 " Settings
-set laststatus=2
-set number relativenumber
+set autochdir
 set backspace=indent,eol,start
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set laststatus=2
 set noshowmode
+set number relativenumber
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " Statusline
 set statusline+=%#warningmsg#

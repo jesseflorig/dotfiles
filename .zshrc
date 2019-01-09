@@ -29,6 +29,7 @@ export PATH="~/Library/Android/sdk/platform-tools:"$PATH
 export PATH="~/Library/Python/2.7/bin:"$PATH
 export ZSH=/Users/jesse/.oh-my-zsh
 export TERM=xterm-256color
+export NVM_DIR="$HOME/.nvm"
 
 # Plugins
 ################################################################################
@@ -174,4 +175,9 @@ local he=$(host_emoji $(hostname -s))
 
 PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
 
+# Init Commands
+################################################################################
+
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # Load NVM
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # Load NVM BASH completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
