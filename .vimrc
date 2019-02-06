@@ -43,7 +43,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'      " JSX prereq
   Plug 'mxw/vim-jsx'                  " JSX highlighter
   Plug 'jparise/vim-graphql'          " Graphql highlighter
-  Plug 'vim-syntastic/syntastic'      " Linting
+  "Plug 'vim-syntastic/syntastic'      " Linting
   Plug 'sbdchd/neoformat'             " Prettier
 call plug#end()
 
