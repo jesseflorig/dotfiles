@@ -19,7 +19,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Exports
 ################################################################################
-export EDITOR='vim'
+export EDITOR='nvim'
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/usr/local/bin:/usr/local/sbin"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:"$PATH
@@ -100,7 +100,7 @@ brave(){ # Open file in Brave
 # Aliases
 ################################################################################
 ## Commands
-alias vi="vim"
+alias vi="nvim"
 alias ll="ls -alh" # show all with human readable sizes
 alias lls="ll -S"  # sort by file size
 alias lt="ll -t"   # sort by last modified

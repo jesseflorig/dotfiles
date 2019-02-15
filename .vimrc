@@ -17,46 +17,41 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-
-"Neoformat
-let g:neoformat_try_formatprg = 1
-
 " VIM plugins
-" Use :PlugInstall after updating
 call plug#begin('~/.vim/plugged')
-  Plug 'scrooloose/nerdtree'          " File viewer
   Plug 'itchyny/lightline.vim'        " Status line
   Plug 'ap/vim-buftabline'            " Buffer tabs
-  Plug 'mattn/emmet-vim'              " Emmet shorthands
-  Plug 'Xuyuanp/nerdtree-git-plugin'  " Git file statuses
-  Plug 'qpkorr/vim-bufkill'           " Buffer killer (?)
-  Plug 'ggreer/the_silver_searcher'   " Silver searcher
+  Plug 'qpkorr/vim-bufkill'           " Retain window after buffer kill
+  Plug 'ggreer/the_silver_searcher'   " Fuzy find in file
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'             " Fuzzy finder
+  Plug 'junegunn/fzf.vim'             " Fuzzy find in path
   Plug 'pangloss/vim-javascript'      " JSX prereq
   Plug 'mxw/vim-jsx'                  " JSX highlighter
+  Plug 'scrooloose/nerdcommenter'     " Quick Comments
   Plug 'jparise/vim-graphql'          " Graphql highlighter
-  "Plug 'vim-syntastic/syntastic'      " Linting
-  Plug 'sbdchd/neoformat'             " Prettier
+  Plug 'w0rp/ale'                     " Linting
 call plug#end()
 
-" Hotkeys
-map <C-n> :NERDTreeToggle<CR>
+" Plugged
+nmap <C-P> :PlugInstall<CR>
+
+" ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier','eslint'],
+\}
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 " Buffer navigation
 nmap < :bprev<CR>
 nmap > :bnext<CR>
 
 " Vimgrep navigation
-nmap { :cprev<CR>
-nmap } :cnext<CR>
+nmap [ :cprev<CR>
+nmap ] :cnext<CR>
 
 " Vim pane navigation
 nmap <C-J> <C-W><C-J>
@@ -66,23 +61,21 @@ nmap <C-H> <C-W><C-H>
 
 " FZF
 nmap <C-X> :Files<CR>
+nmap <C-D> :Ag<CR>
 nmap <C-C> :bd<CR>
 
-let g:user_emmet_leader_key='<C-Z>'
+" Snippet tab jump
+inoremap <Space><Space> <ESC>/_+_<Enter>"_c3l
 
-" Auto Commands
-autocmd StdinReadPre * let s:std_in=1
+" JSX snippets
+autocmd FileType javascript imap ;im
+      \ import<Space>_+_<Space>from<Space>"_+_"<Space><Space>
 
-" Neoformat Prettier
-augroup NeoformatAutoFormat
+" ALE Autofixer
+augroup ALEAutoFix
   autocmd!
-  autocmd FileType javascript setlocal formatprg=prettier\
-                                          \--stdin\
-                                          \--print-width\ 80\
-                                          \--no-semi\
-
-  autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.json Neoformat
-augroup END
+  autocmd FileType javascript ALEFix
+  autocmd InsertLeave *.js,*.jsx,*.json ALEFix
 
 " Vim plug auto-load
 if empty(glob('~/.vim/autoload/plug.vim'))
