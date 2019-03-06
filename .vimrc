@@ -6,11 +6,15 @@
 syntax on
 
 " Settings
+set hidden
 set backspace=indent,eol,start
 set laststatus=2
 set noshowmode
 set number relativenumber
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
+" ALE / Language Client
+set signcolumn=yes
 
 " Statusline
 set statusline+=%#warningmsg#
@@ -38,12 +42,15 @@ nmap <C-P> :PlugInstall<CR>
 " ALE
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier','eslint'],
+\   'javascript': ['prettier','eslint']
 \}
 let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
+
+" Nerd Commenter
+let g:NERDCustomDelimiters = { 'javascript': 
+      \ { 'left': '// ','leftAlt': '/* ','rightAlt': ' */' } }
 
 " Buffer navigation
 nmap < :bprev<CR>
@@ -64,6 +71,13 @@ nmap <C-X> :Files<CR>
 nmap <C-D> :Ag<CR>
 nmap <C-C> :bd<CR>
 
+" Comments
+nmap <C-/> <leader>c<Space>
+nmap <C-_> <leader>c<Space>
+
+" Super Escape (removes HL)
+noremap <ESC><ESC> <ESC>:noh<Enter>
+
 " Snippet tab jump
 inoremap <Space><Space> <ESC>/_+_<Enter>"_c3l
 
@@ -75,7 +89,7 @@ autocmd FileType javascript imap ;im
 augroup ALEAutoFix
   autocmd!
   autocmd FileType javascript ALEFix
-  autocmd InsertLeave *.js,*.jsx,*.json ALEFix
+  autocmd TextChanged,InsertLeave *.js,*.jsx,*.json ALEFix
 
 " Vim plug auto-load
 if empty(glob('~/.vim/autoload/plug.vim'))

@@ -3,22 +3,18 @@
 ################################################################################
 
 # Options
-################################################################################
 setopt prompt_subst
 unsetopt correct_all
 
 # Variables
-################################################################################
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
 # Sources
-################################################################################
 source ~/.oh-my-zsh/oh-my-zsh.sh
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Exports
-################################################################################
 export EDITOR='nvim'
 export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/usr/local/bin:/usr/local/sbin"
@@ -32,7 +28,6 @@ export TERM=xterm-256color
 export NVM_DIR="$HOME/.nvm"
 
 # Plugins
-################################################################################
 plugins=(
   bower
   brew
@@ -49,7 +44,6 @@ plugins=(
 )
 
 # Helper Functions
-################################################################################
 user_emoji(){
   case $1 in
     jesse)
@@ -98,7 +92,6 @@ brave(){ # Open file in Brave
 }
 
 # Aliases
-################################################################################
 ## Commands
 alias vi="nvim"
 alias ll="ls -alh" # show all with human readable sizes
@@ -124,6 +117,11 @@ alias dotfilesinit="dotfiles config --local status.showUntrackedFiles no"
 alias docs="cd ~/Dropbox/Documents"
 alias repos="cd ~/Repos"
 alias downloads="cd ~/Downloads"
+
+## Git
+alias gb="git branch"
+alias gd="git diff"
+alias gs="git status"
 
 ## Dataviser
 alias dvinit="~/.tmux.scripts/dataviser.sh"
@@ -157,7 +155,6 @@ alias restart="sudo shutdown -r now"
 alias esrun="repos && cd elasticsearch/bin && elasticsearch"
 
 # Variables
-################################################################################
 ZSH_THEME="mh"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
@@ -176,8 +173,6 @@ local he=$(host_emoji $(hostname -s))
 PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
 
 # Init Commands
-################################################################################
-
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # Load NVM
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # Load NVM BASH completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
