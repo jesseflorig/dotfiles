@@ -11,7 +11,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set noshowmode
 set number relativenumber
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab
 
 " ALE / Language Client
 set signcolumn=yes

@@ -23,6 +23,7 @@ export PATH="/usr/local/opt:"$PATH
 export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
 export PATH="~/Library/Python/2.7/bin:"$PATH
+export PATH="./Library/Python/2.7/bin:"$PATH
 export ZSH=/Users/jesse/.oh-my-zsh
 export TERM=xterm-256color
 export NVM_DIR="$HOME/.nvm"
