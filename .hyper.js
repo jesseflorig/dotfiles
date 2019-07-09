@@ -12,7 +12,7 @@ module.exports = {
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Fira Code, monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -53,9 +53,11 @@ module.exports = {
 
     // custom CSS to embed in the main window
     css: '',
-
+     
     // custom CSS to embed in the terminal window
-    termCSS: '',
+    termCSS:`
+        x-screen x-row { font-variant-ligatures: initial; }
+    `,
 
     // if you're using a Linux setup which show native menus, set to false
     // default: `true` on Linux, `true` on Windows, ignored on macOS
@@ -138,23 +140,22 @@ module.exports = {
     webGLRenderer: true,
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+    
+    // Hyperterm Summon
     summon: {
       hideDock:true,
-      hideOnBlur: true,
       hotkey: 'Alt+Space'
     },
+
+    // Hyper Transparent
     hyperTransparent: {
       opacity: 0.8,
-      vibrancy: 'dark'
+      vibrancy: 'ultra-dark'
     }
   },
 
   // a list of plugins to fetch and install from npm
   // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
   plugins: [
     'gitrocket',
     'hyper-dracula',
