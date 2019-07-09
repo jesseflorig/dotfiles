@@ -20,6 +20,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/usr/local/bin:/usr/local/sbin"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:"$PATH
 export PATH="/usr/local/opt:"$PATH
+export PATH="~/Library:"$PATH
 export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
 export ZSH=/Users/jesse/.oh-my-zsh
@@ -106,11 +107,11 @@ alias htb="sudo openvpn --config ~/Downloads/jesseflorig.ovpn"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
 ## Configs
-alias src="source ~/.zshrc"
-alias brc="vi ~/.bashrc"
-alias zrc="vi ~/.zshrc"
-alias vrc="vi ~/.vimrc"
-alias trc="vi ~/.tmux.conf"
+alias hrc="vi ~/.hyper,js"  # Modify the Hyper Terminal config
+alias src="source ~/.zshrc" # Reload the Zsh config
+alias trc="vi ~/.tmux.conf" # Modify the Tmux config
+alias vrc="vi ~/.vimrc"     # Modify the Vim config
+alias zrc="vi ~/.zshrc"     # Modify the Zsh config
 
 ## Dotfiles management
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

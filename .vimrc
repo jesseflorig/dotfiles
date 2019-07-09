@@ -18,7 +18,6 @@ set signcolumn=yes
 
 " Statusline
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " VIM plugins
