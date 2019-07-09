@@ -107,7 +107,7 @@ alias htb="sudo openvpn --config ~/Downloads/jesseflorig.ovpn"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
 ## Configs
-alias hrc="vi ~/.hyper,js"  # Modify the Hyper Terminal config
+alias hrc="vi ~/.hyper.js"  # Modify the Hyper Terminal config
 alias src="source ~/.zshrc" # Reload the Zsh config
 alias trc="vi ~/.tmux.conf" # Modify the Tmux config
 alias vrc="vi ~/.vimrc"     # Modify the Vim config
