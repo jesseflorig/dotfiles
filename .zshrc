@@ -10,9 +10,9 @@ unsetopt correct_all
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
 # Sources
-source ~/.oh-my-zsh/oh-my-zsh.sh
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/bin/virtualenvwrapper.sh
+# source ~/.oh-my-zsh/oh-my-zsh.sh
+# source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # Exports
 export EDITOR='nvim'
