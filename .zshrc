@@ -80,6 +80,15 @@ path_emoji(){
     /Users/jesse)
       echo 🏠
       ;;
+    /Users/jesse/Repos)
+      echo 🌎
+      ;;
+    /Users/jesse/Repos/rhaegal)
+      echo 🐉
+      ;;
+    /Users/jesse/Repos/viserion)
+      echo 🐲
+      ;;
     *)
       echo %~
       ;;
@@ -174,7 +183,7 @@ local ue=$(user_emoji $(whoami))
 local he=$(host_emoji $(hostname -s))
 #local pe=$(path_emoji %~)
 
-PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
+PROMPT='${ue} ${he} $(path_emoji $(pwd))${ps} '
 
 # Init Commands
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # Load NVM

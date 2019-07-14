@@ -21,7 +21,7 @@ module.exports = {
     `,
     showHamburgerMenu: '',
     showWindowControls: false,
-    padding: '12px 14px',
+    padding: '0 0 10px 0',
     colors: {
       black: '#000000',
       red: '#C51E14',
@@ -50,21 +50,24 @@ module.exports = {
     quickEdit: false,
     macOptionSelectionMode: 'vertical',
     webGLRenderer: true,
-    // Hyperterm Summon
+    // Plugin settings
+    hyperclean: {
+      hideTabs: true, // default: false
+    },
+    hyperTransparent: {
+      opacity: 0.6,
+      vibrancy: 'ultra-dark'
+    },
     summon: {
       hideDock: false,
       hotkey: 'Alt+Space'
     },
-    // Hyper Transparent
-    hyperTransparent: {
-      opacity: 0.6,
-      vibrancy: 'ultra-dark'
-    }
   },
   plugins: [
     'gitrocket',
     'hyper-dracula',
     'hyper-transparent',
+    'hyperclean',
     'hyperline',
     'hyperpower',
     'hyperterm-summon'
