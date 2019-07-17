@@ -15,7 +15,6 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 # Third party Plugins (You will need to git clone these to your plugins directory)
 source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
-source ~/.oh-my-zsh/plugins/calc.plugin.zsh/calc.plugin.zsh
 
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin"
@@ -169,6 +168,7 @@ alias tmake="tmux new -s $1"
 alias tkill="tmux kill-session -t $1"
 alias tls="tmux ls"
 alias ta="tmux attach -t $1"
+alias ts="tmux switch -t $1"
 
 ## Misc
 alias cht="curl cht.sh"
@@ -189,9 +189,8 @@ local ps=" "                       # prompt string
 
 local ue=$(user_emoji $(whoami))
 local he=$(host_emoji $(hostname -s))
-#local pe=$(path_emoji %~)
 
-PROMPT='${ue} ${he} $(path_emoji $(pwd))${ps} '
+PROMPT='${ue} ${he} $(path_emoji $(pwd))${ps}'
 RPROMPT='$(git_super_status "%s")'
 
 # Init Commands
