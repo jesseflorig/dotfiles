@@ -10,38 +10,45 @@ unsetopt correct_all
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
 # Sources
-# source ~/.oh-my-zsh/oh-my-zsh.sh
-# source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
 
-# Exports
-export EDITOR='nvim'
-export MANPATH="/usr/local/man:$MANPATH"
+# Third party Plugins (You will need to git clone these to your plugins directory)
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
+source ~/.oh-my-zsh/plugins/calc.plugin.zsh/calc.plugin.zsh
+
+# PATH
 export PATH="/usr/local/bin:/usr/local/sbin"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:"$PATH
 export PATH="/usr/local/opt:"$PATH
 export PATH="~/Library:"$PATH
 export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
-export ZSH=/Users/jesse/.oh-my-zsh
-export TERM=xterm-256color
+
+# Exports
+export EDITOR='nvim'
+export MANPATH="/usr/local/man:$MANPATH"
 export NVM_DIR="$HOME/.nvm"
+export TERM=xterm-256color
+export WORKON_HOME=~/.virtualenvs
+export ZSH=/Users/jesse/.oh-my-zsh
 
 # AWS
 export AWS_DEFAULT_PROFILE=jesse
 
 # Plugins
 plugins=(
-  bower
   brew
   git
+  go
+  golang
   history
-  meteor
   node
   npm
   pip
   python
   tmux
+  vim-interaction
   virtualenvwrapper
   yarn
 )
@@ -130,6 +137,7 @@ alias dotfilesinit="dotfiles config --local status.showUntrackedFiles no"
 alias docs="cd ~/Dropbox/Documents"
 alias repos="cd ~/Repos"
 alias downloads="cd ~/Downloads"
+alias zplug="cd ~/.oh-my-zsh/plugins"
 
 ## Git
 alias gb="git branch"
@@ -184,6 +192,7 @@ local he=$(host_emoji $(hostname -s))
 #local pe=$(path_emoji %~)
 
 PROMPT='${ue} ${he} $(path_emoji $(pwd))${ps} '
+RPROMPT='$(git_super_status "%s")'
 
 # Init Commands
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # Load NVM
