@@ -25,9 +25,10 @@ export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
 
 # Exports
-export EDITOR='nvim'
-export MANPATH="/usr/local/man:$MANPATH"
-export NVM_DIR="$HOME/.nvm"
+export EDITOR=nvim
+export GOPATH=$HOME/Repos/go
+export MANPATH=/usr/local/man:$MANPATH
+export NVM_DIR=$HOME/.nvm
 export TERM=xterm-256color
 export WORKON_HOME=~/.virtualenvs
 export ZSH=/Users/jesse/.oh-my-zsh
@@ -95,6 +96,9 @@ path_emoji(){
     /Users/jesse/Repos/viserion)
       echo 🐲
       ;;
+    /Users/jesse/Repos/go/src/github.com/jesseflorig)
+      echo 🐨
+      ;;
     *)
       echo %~
       ;;
@@ -134,6 +138,7 @@ alias dotfilesinit="dotfiles config --local status.showUntrackedFiles no"
 
 ## Directories
 alias docs="cd ~/Dropbox/Documents"
+alias goroot="cd $GOPATH/src/github.com/jesseflorig"
 alias repos="cd ~/Repos"
 alias downloads="cd ~/Downloads"
 alias zplug="cd ~/.oh-my-zsh/plugins"
@@ -162,6 +167,7 @@ alias rtest="~/Repos/rhaegal/bin/test.sh"
 alias viserion="cd ~/Repos/viserion"
 alias vupdate="viserion && npm i"
 alias vstart="viserion && npm start"
+alias vtest="viserion && npm test"
 
 ## TMUX
 alias tmake="tmux new -s $1"

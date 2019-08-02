@@ -15,13 +15,9 @@ module.exports = {
     backgroundColor: '#000',
     selectionColor: 'rgba(248,28,229,0.3)',
     borderColor: '#333',
-    css: '',
-    termCSS:`
-        x-screen x-row { font-variant-ligatures: initial; }
-    `,
     showHamburgerMenu: '',
     showWindowControls: false,
-    padding: '0 0 10px 0',
+    padding: '5px 5px 10px 5px',
     colors: {
       black: '#000000',
       red: '#C51E14',
@@ -44,7 +40,6 @@ module.exports = {
     shellArgs: ['--login'],
     env: {},
     bell: 'SOUND',
-    // bellSoundURL: 'http://example.com/bell.mp3',
     copyOnSelect: false,
     defaultSSHApp: true,
     quickEdit: false,
@@ -54,23 +49,19 @@ module.exports = {
     hyperclean: {
       hideTabs: true, // default: false
     },
-    hyperTransparent: {
-      opacity: 0.6,
-      vibrancy: 'ultra-dark'
-    },
     summon: {
       hideDock: false,
       hotkey: 'Alt+Space'
     },
   },
   plugins: [
-    'gitrocket',
     'hyper-dracula',
-    'hyper-transparent',
+    'hyper-krftwrk',
+    'hyper-postprocessing',
     'hyperclean',
     'hyperline',
     'hyperpower',
-    'hyperterm-summon'
+    'hyperterm-summon',
   ],
   localPlugins: [],
   keymaps: {
