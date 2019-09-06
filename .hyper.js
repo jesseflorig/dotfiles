@@ -57,10 +57,8 @@ module.exports = {
   plugins: [
     'hyper-dracula',
     'hyper-krftwrk',
-    'hyper-postprocessing',
     'hyperclean',
     'hyperline',
-    'hyperpower',
     'hyperterm-summon',
   ],
   localPlugins: [],
