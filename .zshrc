@@ -160,6 +160,7 @@ alias rupdate="source ~/Repos/rhaegal/venv/bin/activate && \
   ~/Repos/rhaegal/bin/setup.sh"
 alias rstart="source ~/Repos/rhaegal/venv/bin/activate && \
   ~/Repos/rhaegal/bin/run.sh"
+alias rfix="rm store.db && ~/Repos/rhaegal/bin/run.sh -t bootstrap"
 alias rlint="~/Repos/rhaegal/bin/lint.sh"
 alias rtest="~/Repos/rhaegal/bin/test.sh"
 
