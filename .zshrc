@@ -169,6 +169,7 @@ alias viserion="cd ~/Repos/viserion"
 alias vupdate="viserion && npm i"
 alias vstart="viserion && npm start"
 alias vtest="viserion && npm test"
+alias vlint="viserion && npm run lint"
 
 ## TMUX
 alias tmake="tmux new -s $1"
