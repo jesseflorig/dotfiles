@@ -90,10 +90,10 @@ path_emoji(){
     /Users/jesse/Repos)
       echo 🌎
       ;;
-    /Users/jesse/Repos/rhaegal)
+    /Users/jesse/Repos/rhaegal|/Users/jesse/Repos/dataviser/server)
       echo 🐉
       ;;
-    /Users/jesse/Repos/viserion)
+    /Users/jesse/Repos/viserion|/Users/jesse/Repos/dataviser/client)
       echo 🐲
       ;;
     /Users/jesse/Repos/go/src/github.com/jesseflorig)
@@ -150,9 +150,21 @@ alias gs="git status"
 
 ## Dataviser
 alias dvinit="~/.tmux.scripts/dataviser.sh"
-alias cdv="cd ~/Repos/dataviser"
-alias cdvv="cd ~/Repos/dataviser/webapp/dataviser"
 alias sshdv="ssh bastion01"
+alias dvs="cd ~/Repos/dataviser/server"
+alias dvsenv="source ~/Repos/dataviser/server/venv/bin/activate"
+alias dvsupdate="dvsenv && ~/Repos/dataviser/server/bin/setup.sh"
+alias dvsstart="dvsenv && ~/Repos/dataviser/server/bin/run.sh"
+alias dvsfix="rm ~/Repos/dataviser/server/store.db && \
+  ~/Repos/dataviser/server/bin/run.sh -t bootstrap"
+alias dvslint="~/Repos/dataviser/server/bin/lint.sh"
+alias dvstest="~/Repos/dataviser/server/bin/test.sh"
+alias dvc="cd ~/Repos/dataviser/client"
+alias dvcupdate="dvc && npm i"
+alias dvcstart="dvc && npm start"
+alias dvctest="dvc && npm test"
+alias dvcclear="dvc && npx jest --clearCache"
+alias dvclint="dvc && npm run lint"
 
 ## Rhaegal
 alias rhaegal="cd ~/Repos/rhaegal"
