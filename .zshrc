@@ -90,10 +90,10 @@ path_emoji(){
     /Users/jesse/Repos)
       echo 🌎
       ;;
-    /Users/jesse/Repos/rhaegal|/Users/jesse/Repos/dataviser/server)
+    /Users/jesse/Repos/dataviser/server)
       echo 🐉
       ;;
-    /Users/jesse/Repos/viserion|/Users/jesse/Repos/dataviser/client)
+    /Users/jesse/Repos/dataviser/client)
       echo 🐲
       ;;
     /Users/jesse/Repos/go/src/github.com/jesseflorig)
@@ -152,36 +152,19 @@ alias gs="git status"
 alias dvinit="~/.tmux.scripts/dataviser.sh"
 alias sshdv="ssh bastion01"
 alias dvs="cd ~/Repos/dataviser/server"
-alias dvsenv="source ~/Repos/dataviser/server/venv/bin/activate"
-alias dvsupdate="dvsenv && ~/Repos/dataviser/server/bin/setup.sh"
-alias dvsstart="dvsenv && ~/Repos/dataviser/server/bin/run.sh"
-alias dvsfix="rm ~/Repos/dataviser/server/store.db && \
+alias dvse="source ~/Repos/dataviser/server/venv/bin/activate"
+alias dvsu="dvsenv && ~/Repos/dataviser/server/bin/setup.sh"
+alias dvss="dvsenv && ~/Repos/dataviser/server/bin/run.sh"
+alias dvsf="rm ~/Repos/dataviser/server/store.db && \
   ~/Repos/dataviser/server/bin/run.sh -t bootstrap"
-alias dvslint="~/Repos/dataviser/server/bin/lint.sh"
-alias dvstest="~/Repos/dataviser/server/bin/test.sh"
+alias dvsl="~/Repos/dataviser/server/bin/lint.sh"
+alias dvst="~/Repos/dataviser/server/bin/test.sh"
 alias dvc="cd ~/Repos/dataviser/client"
-alias dvcupdate="dvc && npm i"
-alias dvcstart="dvc && npm start"
-alias dvctest="dvc && npm test"
-alias dvcclear="dvc && npx jest --clearCache"
-alias dvclint="dvc && npm run lint"
-
-## Rhaegal
-alias rhaegal="cd ~/Repos/rhaegal"
-alias rupdate="source ~/Repos/rhaegal/venv/bin/activate && \
-  ~/Repos/rhaegal/bin/setup.sh"
-alias rstart="source ~/Repos/rhaegal/venv/bin/activate && \
-  ~/Repos/rhaegal/bin/run.sh"
-alias rfix="rm store.db && ~/Repos/rhaegal/bin/run.sh -t bootstrap"
-alias rlint="~/Repos/rhaegal/bin/lint.sh"
-alias rtest="~/Repos/rhaegal/bin/test.sh"
-
-## Viserion
-alias viserion="cd ~/Repos/viserion"
-alias vupdate="viserion && npm i"
-alias vstart="viserion && npm start"
-alias vtest="viserion && npm test"
-alias vlint="viserion && npm run lint"
+alias dvcu="dvc && npm i"
+alias dvcs="dvc && npm start"
+alias dvct="dvc && npm test"
+alias dvcc="dvc && npx jest --clearCache"
+alias dvcl="dvc && npm run lint"
 
 ## TMUX
 alias tmake="tmux new -s $1"
