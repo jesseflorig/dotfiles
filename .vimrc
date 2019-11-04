@@ -6,12 +6,21 @@
 syntax on
 
 " Settings
-set hidden
 set backspace=indent,eol,start
 set laststatus=2
 set noshowmode
 set number relativenumber
 set tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab
+
+" Recommended CoC Settings
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
 
 " ALE / Language Client
 set signcolumn=yes
@@ -22,17 +31,18 @@ set statusline+=%*
 
 " VIM plugins
 call plug#begin('~/.vim/plugged')
-  Plug 'itchyny/lightline.vim'        " Status line
-  Plug 'ap/vim-buftabline'            " Buffer tabs
-  Plug 'qpkorr/vim-bufkill'           " Retain window after buffer kill
-  Plug 'ggreer/the_silver_searcher'   " Fuzy find in file
+  Plug 'itchyny/lightline.vim'                    " Status line
+  Plug 'ap/vim-buftabline'                        " Buffer tabs
+  Plug 'qpkorr/vim-bufkill'                       " Retain window after buffer kill
+  Plug 'w0rp/ale'                                 " Linting
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
+  Plug 'scrooloose/nerdcommenter'                 " Quick Comments
+  Plug 'ggreer/the_silver_searcher'               " Fuzy find in file
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'             " Fuzzy find in path
-  Plug 'pangloss/vim-javascript'      " JSX prereq
-  Plug 'mxw/vim-jsx'                  " JSX highlighter
-  Plug 'scrooloose/nerdcommenter'     " Quick Comments
-  Plug 'jparise/vim-graphql'          " Graphql highlighter
-  Plug 'w0rp/ale'                     " Linting
+  Plug 'junegunn/fzf.vim'                         " Fuzzy find in path
+  Plug 'pangloss/vim-javascript'                  " JSX prereq
+  Plug 'mxw/vim-jsx'                              " JSX highlighter
+  Plug 'jparise/vim-graphql'                      " Graphql highlighter
 call plug#end()
 
 " Plugged
@@ -79,6 +89,20 @@ noremap <ESC><ESC> <ESC>:noh<Enter>
 
 " Snippet tab jump
 inoremap <Space><Space> <ESC>/_+_<Enter>"_c3l
+
+" Trigger CoC selection with TAB and completion with ENTER
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 
 " JSX snippets
 autocmd FileType javascript imap ;im
