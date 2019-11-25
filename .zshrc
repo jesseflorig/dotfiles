@@ -153,8 +153,8 @@ alias dvinit="~/.tmux.scripts/dataviser.sh"
 alias sshdv="ssh bastion01"
 alias dvs="cd ~/Repos/dataviser/server"
 alias dvse="source ~/Repos/dataviser/server/venv/bin/activate"
-alias dvsu="dvsenv && ~/Repos/dataviser/server/bin/setup.sh"
-alias dvss="dvsenv && ~/Repos/dataviser/server/bin/run.sh"
+alias dvsu="dvse && ~/Repos/dataviser/server/bin/setup.sh"
+alias dvss="dvse && ~/Repos/dataviser/server/bin/run.sh"
 alias dvsf="rm ~/Repos/dataviser/server/store.db && \
   ~/Repos/dataviser/server/bin/run.sh -t bootstrap"
 alias dvsl="~/Repos/dataviser/server/bin/lint.sh"
@@ -193,7 +193,7 @@ local ps=" "                       # prompt string
 local ue=$(user_emoji $(whoami))
 local he=$(host_emoji $(hostname -s))
 
-PROMPT='${ue} ${he} $(path_emoji $(pwd))${ps}'
+PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
 RPROMPT='$(git_super_status "%s")'
 
 # Init Commands
