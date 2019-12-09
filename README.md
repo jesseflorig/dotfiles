@@ -24,7 +24,7 @@ As long as you have access to Github, setup should be painless:
 
   1. Clone the repo to your `$HOME/.dotfiles` directory
   ```
-  git clone git@github.com:jesseflorig/dotfiles.git $HOME/.dotfiles
+  git clone --bare git@github.com:jesseflorig/dotfiles.git $HOME/.dotfiles
   ```
   2. Checkout the config files from your local repo to your `$HOME` directory
   ```
