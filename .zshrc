@@ -9,13 +9,6 @@ unsetopt correct_all
 # Variables
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
-# Sources
-source ~/.oh-my-zsh/oh-my-zsh.sh
-
-# Third party Plugins (You will need to git clone these to your plugins directory)
-source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
-
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin"
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:"$PATH
@@ -35,6 +28,14 @@ export ZSH=/Users/jesse/.oh-my-zsh
 
 # AWS
 export AWS_DEFAULT_PROFILE=jesse
+
+# Sources
+source $(brew --prefix nvm)/nvm.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
+
+# Third party Plugins (You will need to git clone these to your plugins directory)
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
 
 # Plugins
 plugins=(
@@ -89,6 +90,9 @@ path_emoji(){
       ;;
     /Users/jesse/Repos)
       echo 🌎
+      ;;
+    /Users/jesse/Repos/dataviser)
+      echo 🤖
       ;;
     /Users/jesse/Repos/dataviser/server)
       echo 🐉
@@ -151,6 +155,7 @@ alias gs="git status"
 ## Dataviser
 alias dvinit="~/.tmux.scripts/dataviser.sh"
 alias sshdv="ssh bastion01"
+alias dvroot="cd ~/Repos/dataviser"
 alias dvs="cd ~/Repos/dataviser/server"
 alias dvse="source ~/Repos/dataviser/server/venv/bin/activate"
 alias dvsu="dvse && ~/Repos/dataviser/server/bin/setup.sh"
