@@ -21,7 +21,6 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
-
 " ALE / Language Client
 set signcolumn=yes
 
@@ -87,9 +86,6 @@ nmap <C-_> <leader>c<Space>
 " Super Escape (removes HL)
 noremap <ESC><ESC> <ESC>:noh<Enter>
 
-" Snippet tab jump
-inoremap <Space><Space> <ESC>/_+_<Enter>"_c3l
-
 " Trigger CoC selection with TAB and completion with ENTER
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -102,7 +98,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 " JSX snippets
 autocmd FileType javascript imap ;im
