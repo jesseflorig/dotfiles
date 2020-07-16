@@ -42,22 +42,25 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'                  " JSX prereq
   Plug 'mxw/vim-jsx'                              " JSX highlighter
   Plug 'jparise/vim-graphql'                      " Graphql highlighter
+  Plug 'tasn/vim-tsx'                             " TypeScript highlighter
 call plug#end()
 
 " Plugged
 nmap <C-P> :PlugInstall<CR>
 
-" ALE
+" ALE config
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier','eslint']
 \}
 let g:ale_completion_enabled = 1
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 " Nerd Commenter
-let g:NERDCustomDelimiters = { 'javascript': 
+let g:NERDCustomDelimiters = { 'javascript':
       \ { 'left': '// ','leftAlt': '/* ','rightAlt': ' */' } }
 
 " Buffer navigation

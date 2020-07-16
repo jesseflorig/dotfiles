@@ -41,7 +41,6 @@ source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
 plugins=(
   brew
   git
-  go
   golang
   history
   node
@@ -90,6 +89,9 @@ path_emoji(){
       ;;
     /Users/jesse/Repos)
       echo 🌎
+      ;;
+    /Users/jesse/Repos/bdoc)
+      echo 🖖
       ;;
     /Users/jesse/Repos/dataviser)
       echo 🤖
@@ -152,6 +154,9 @@ alias gb="git branch"
 alias gd="git diff"
 alias gs="git status"
 
+## Picard
+alias bdoc="cd ~/Repos/bdoc"
+
 ## Dataviser
 alias dvinit="~/.tmux.scripts/dataviser.sh"
 alias sshdv="ssh bastion01"
@@ -160,8 +165,8 @@ alias dvs="cd ~/Repos/dataviser/server"
 alias dvse="dvs && source ~/Repos/dataviser/server/venv/bin/activate"
 alias dvsu="dvse && ~/Repos/dataviser/server/bin/setup.sh"
 alias dvss="dvse && ~/Repos/dataviser/server/bin/run.sh"
-alias dvsf="./bin/run.sh -t migrate_sql"
-alias dvsb="~/Repos/dataviser/server/bin/run.sh -t bootstrap"
+alias dvsm="./bin/run.sh -t migrate_sql"
+alias dvsb="dropdb dataviser && createdb dataviser && dvse && ~/Repos/dataviser/server/bin/run.sh -t bootstrap"
 alias dvsl="~/Repos/dataviser/server/bin/lint.sh"
 alias dvst="~/Repos/dataviser/server/bin/test.sh"
 alias dvc="cd ~/Repos/dataviser/client"
