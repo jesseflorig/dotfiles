@@ -27,7 +27,7 @@ export WORKON_HOME=~/.virtualenvs
 export ZSH=/Users/jesse/.oh-my-zsh
 
 # AWS
-export AWS_DEFAULT_PROFILE=jesse
+export AWS_DEFAULT_PROFILE=default
 
 # Sources
 source $(brew --prefix nvm)/nvm.sh
@@ -90,8 +90,11 @@ path_emoji(){
     /Users/jesse/Repos)
       echo 🌎
       ;;
-    /Users/jesse/Repos/bdoc)
+    /Users/jesse/Repos/prime)
       echo 🖖
+      ;;
+    /Users/jesse/Repos/papi)
+      echo 🌮
       ;;
     /Users/jesse/Repos/dataviser)
       echo 🤖
