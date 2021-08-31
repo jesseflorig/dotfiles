@@ -90,6 +90,9 @@ path_emoji(){
     /Users/jesse/Repos)
       echo 🌎
       ;;
+    /Users/jesse/Repos/belch)
+      echo 🤮
+      ;;
     /Users/jesse/Repos/prime)
       echo 🖖
       ;;
