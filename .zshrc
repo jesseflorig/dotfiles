@@ -71,7 +71,7 @@ user_emoji(){
 
 host_emoji(){
   case $1 in
-    MBP)
+    MBP21)
       echo 💻
       ;;
     *)
@@ -88,29 +88,14 @@ path_emoji(){
     /Users/jesse)
       echo 🏠
       ;;
-    /Users/jesse/Repos)
+    /Users/jesse/Code)
       echo 🌎
       ;;
-    /Users/jesse/Repos/belch)
+    /Users/jesse/Code/belch)
       echo 🤮
       ;;
-    /Users/jesse/Repos/prime)
-      echo 🖖
-      ;;
-    /Users/jesse/Repos/papi)
-      echo 🌮
-      ;;
-    /Users/jesse/Repos/dataviser)
-      echo 🤖
-      ;;
-    /Users/jesse/Repos/dataviser/server)
-      echo 🐉
-      ;;
-    /Users/jesse/Repos/dataviser/client)
-      echo 🐲
-      ;;
-    /Users/jesse/Repos/go/src/github.com/jesseflorig)
-      echo 🐨
+    /Users/jesse/Code/cabal)
+      echo 🔮
       ;;
     *)
       echo %~
@@ -154,7 +139,7 @@ alias dotfilesinit="dotfiles config --local status.showUntrackedFiles no"
 ## Directories
 alias docs="cd ~/Dropbox/Documents"
 alias goroot="cd $GOPATH/src/github.com/jesseflorig"
-alias repos="cd ~/Repos"
+alias code="cd ~/Code"
 alias downloads="cd ~/Downloads"
 alias zplug="cd ~/.oh-my-zsh/plugins"
 
@@ -162,28 +147,6 @@ alias zplug="cd ~/.oh-my-zsh/plugins"
 alias gb="git branch"
 alias gd="git diff"
 alias gs="git status"
-
-## Picard
-alias bdoc="cd ~/Repos/bdoc"
-
-## Dataviser
-alias dvinit="~/.tmux.scripts/dataviser.sh"
-alias sshdv="ssh bastion01"
-alias dvr="cd ~/Repos/dataviser"
-alias dvs="cd ~/Repos/dataviser/server"
-alias dvse="dvs && source ~/Repos/dataviser/server/venv/bin/activate"
-alias dvsu="dvse && ~/Repos/dataviser/server/bin/setup.sh"
-alias dvss="dvse && ~/Repos/dataviser/server/bin/run.sh"
-alias dvsm="./bin/run.sh -t migrate_sql"
-alias dvsb="dropdb dataviser && createdb dataviser && dvse && ~/Repos/dataviser/server/bin/run.sh -t bootstrap"
-alias dvsl="~/Repos/dataviser/server/bin/lint.sh"
-alias dvst="~/Repos/dataviser/server/bin/test.sh"
-alias dvc="cd ~/Repos/dataviser/client"
-alias dvcu="dvc && npm i"
-alias dvcs="dvc && npm start"
-alias dvct="dvc && npm test"
-alias dvcc="dvc && npx jest --clearCache"
-alias dvcl="dvc && npm run lint"
 
 ## TMUX
 alias tmake="tmux new -s $1"

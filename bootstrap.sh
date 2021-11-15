@@ -138,10 +138,26 @@ npm install ${GLOBAL_NPM_PACKAGES[@]} -g
 
 echo "Configuring OSX..."
 
+# Set host name
+sudo scutil --set HostName MBP21
+
 # Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# TODO: Remap CAPS_LOCK to ESC
+
+
+echo "Configuring iTerm2..."
+
+# TODO: Add iterm2 settings plist to dotfiles project
+# Overwrite ~/Library/Prferences/com.googlecode.iterm2.plist
+
+echo "Configuring VSCode..."
+
+# TODO: Add vscode settings to dotfiles project
+
 echo "Creating folder structure..."
+
 [[ ! -d Code ]] && mkdir Code
 
-echo "Bootstrapping complete!"
+echo "Bootstrapping complete 🤙"
