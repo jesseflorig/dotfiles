@@ -10,7 +10,8 @@ unsetopt correct_all
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 
 # PATH
-export PATH="/usr/local/bin:/usr/local/sbin"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:"$PATH
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:"$PATH
 export PATH="/usr/local/opt:"$PATH
 export PATH="~/Library:"$PATH
@@ -34,8 +35,8 @@ source $(brew --prefix nvm)/nvm.sh
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # Third party Plugins (You will need to git clone these to your plugins directory)
-source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/opt/zsh-git-prompt/zshrc.sh
 
 # Plugins
 plugins=(
@@ -143,6 +144,8 @@ alias src="source ~/.zshrc" # Reload the Zsh config
 alias trc="vi ~/.tmux.conf" # Modify the Tmux config
 alias vrc="vi ~/.vimrc"     # Modify the Vim config
 alias zrc="vi ~/.zshrc"     # Modify the Zsh config
+alias brc="vi ~/bootstrap.sh" # Modify the Bootstrap script
+alias bootstrap=". ~/bootstrap.sh" # Run the Bootstrap script
 
 ## Dotfiles management
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
