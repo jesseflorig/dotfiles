@@ -146,6 +146,8 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # TODO: Remap CAPS_LOCK to ESC
 
+echo "Installing Vim plugins..."
+vim +'PlugInstall --sync' +qa
 
 echo "Configuring iTerm2..."
 
