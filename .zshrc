@@ -147,6 +147,8 @@ alias zplug="cd ~/.oh-my-zsh/plugins"
 alias gb="git branch"
 alias gd="git diff"
 alias gs="git status"
+alias ga="git add ."
+alias gc="git commit -am"
 
 ## TMUX
 alias tmake="tmux new -s $1"
