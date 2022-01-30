@@ -139,7 +139,7 @@ alias dotfilesinit="dotfiles config --local status.showUntrackedFiles no"
 ## Directories
 alias docs="cd ~/Dropbox/Documents"
 alias goroot="cd $GOPATH/src/github.com/jesseflorig"
-alias code="cd ~/Code"
+alias repos="cd ~/Code"
 alias downloads="cd ~/Downloads"
 alias zplug="cd ~/.oh-my-zsh/plugins"
 
@@ -161,6 +161,7 @@ alias ts="tmux switch -t $1"
 alias cht="curl cht.sh"
 alias restart="sudo shutdown -r now"
 alias esrun="repos && cd elasticsearch/bin && elasticsearch"
+alias idfinit=". ~/esp/esp-idf/export.sh"
 
 # Variables
 ZSH_THEME="mh"
