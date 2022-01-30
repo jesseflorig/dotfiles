@@ -157,11 +157,18 @@ alias tls="tmux ls"
 alias ta="tmux attach -t $1"
 alias ts="tmux switch -t $1"
 
+## IDF DEV
+alias idfinit=". ~/esp/esp-idf/export.sh && PORT=/dev/cu.usbserial-0001"
+alias idf="idf.py"
+alias idfflash="idf -p $PORT flash"
+alias idferase="idf -p $PORT erase-flash"
+alias idfmon="idf -p $PORT monitor"
+alias idfflashmon="idf -p $PORT flash monitor"
+
 ## Misc
 alias cht="curl cht.sh"
 alias restart="sudo shutdown -r now"
 alias esrun="repos && cd elasticsearch/bin && elasticsearch"
-alias idfinit=". ~/esp/esp-idf/export.sh"
 
 # Variables
 ZSH_THEME="mh"
