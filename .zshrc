@@ -8,6 +8,7 @@ unsetopt correct_all
 
 # Variables
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+GIT_PROMPT_EXECUTABLE='haskell'
 
 # PATH
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin"
@@ -17,6 +18,8 @@ export PATH="/usr/local/opt:"$PATH
 export PATH="~/Library:"$PATH
 export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
+export PATH="/Users/jesse/.oh-my-zsh/plugins/zsh-git-prompt/src/.bin:"$PATH
+export PATH="/usr/local/go/bin:"$PATH
 
 # Exports
 export EDITOR=nvim
@@ -36,7 +39,7 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # Third party Plugins (You will need to git clone these to your plugins directory)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/opt/zsh-git-prompt/zshrc.sh
+source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
 
 # Plugins
 plugins=(
@@ -124,12 +127,13 @@ alias htb="sudo openvpn --config ~/Downloads/jesseflorig.ovpn"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
 ## Configs
-alias hrc="vi ~/.hyper.js"  # Modify the Hyper Terminal config
-alias src="source ~/.zshrc" # Reload the Zsh config
-alias trc="vi ~/.tmux.conf" # Modify the Tmux config
-alias vrc="vi ~/.vimrc"     # Modify the Vim config
-alias zrc="vi ~/.zshrc"     # Modify the Zsh config
-alias brc="vi ~/bootstrap.sh" # Modify the Bootstrap script
+alias hrc="vi ~/.hyper.js"      # Modify the Hyper Terminal config
+alias src="source ~/.zshrc"     # Reload the Zsh config
+alias trc="vi ~/.tmux.conf"     # Modify the Tmux config
+alias vrc="vi ~/.vimrc"         # Modify the Vim config
+alias zrc="vi ~/.zshrc"         # Modify the Zsh config
+alias sshrc="vi ~/.ssh/config"  # Modify the SSH config
+alias brc="vi ~/bootstrap.sh"   # Modify the Bootstrap script
 alias bootstrap=". ~/bootstrap.sh" # Run the Bootstrap script
 
 ## Dotfiles management
@@ -157,13 +161,16 @@ alias tls="tmux ls"
 alias ta="tmux attach -t $1"
 alias ts="tmux switch -t $1"
 
-## IDF DEV
-alias idfinit=". ~/esp/esp-idf/export.sh && PORT=/dev/cu.usbserial-0001"
+## ESP IDF Dev
+alias idfinit=". ~/esp/esp-idf/export.sh && ESPPORT=/dev/cu.usbserial-0001"
 alias idf="idf.py"
-alias idfflash="idf -p $PORT flash"
-alias idferase="idf -p $PORT erase-flash"
-alias idfmon="idf -p $PORT monitor"
-alias idfflashmon="idf -p $PORT flash monitor"
+alias idfc="idf.py menuconfig"
+alias idfb="idf.py build"
+alias idfbb="idf.py fullclean && idf build"
+alias idfflash="idf.py -p $ESPPORT flash"
+alias idferase="idf.py -p $ESPPORT erase-flash"
+alias idfmon="idf.py -p $ESPPORT monitor"
+alias idfflashmon="idf.py -p $ESPPORT flash monitor"
 
 ## Misc
 alias cht="curl cht.sh"
@@ -186,7 +193,7 @@ local ue=$(user_emoji $(whoami))
 local he=$(host_emoji $(hostname -s))
 
 PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
-RPROMPT='$(git_super_status "%s")'
+RPROMPT='$(git_super_status)'
 
 # Init Commands
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # Load NVM

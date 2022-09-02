@@ -81,6 +81,7 @@ nmap <C-H> <C-W><C-H>
 nmap <C-X> :Files<CR>
 nmap <C-D> :Ag<CR>
 nmap <C-C> :bd<CR>
+nmap <C-F> :bd!<CR>
 
 " Comments
 nmap <C-/> <leader>c<Space>
