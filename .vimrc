@@ -30,6 +30,7 @@ set statusline+=%*
 
 " VIM plugins
 call plug#begin('~/.vim/plugged')
+  Plug 'sonph/onehalf', { 'rtp': 'vim' }          " One-half color scheme
   Plug 'itchyny/lightline.vim'                    " Status line
   Plug 'ap/vim-buftabline'                        " Buffer tabs
   Plug 'qpkorr/vim-bufkill'                       " Retain window after buffer kill
@@ -48,12 +49,20 @@ call plug#end()
 " Plugged
 nmap <C-P> :PlugInstall<CR>
 
+" Color scheme
+colorscheme onehalfdark
+let g:lightline = { 'colorscheme': 'onehalfdark' }
+
 " ALE config
 let g:ale_lint_on_insert_leave = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier','eslint']
+\   'javascript': ['prettier','eslint'],
+\   'javascriptreact': ['prettier','eslint'],
+\   'typescript': ['tslint'],
+\   'typescript.tsx': ['prettier','eslint'],
+\   'typescriptreact': ['prettier','eslint']
 \}
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = '❌'
@@ -111,7 +120,8 @@ autocmd FileType javascript imap ;im
 augroup ALEAutoFix
   autocmd!
   autocmd FileType javascript ALEFix
-  autocmd TextChanged,InsertLeave *.js,*.jsx,*.json ALEFix
+  autocmd FileType typescript ALEFix
+  autocmd TextChanged,InsertLeave *.js,*.jsx,*.tsx,*.json ALEFix
 
 " Vim plug auto-load
 if empty(glob('~/.vim/autoload/plug.vim'))
