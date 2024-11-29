@@ -8,7 +8,7 @@ unsetopt correct_all
 
 # Variables
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-GIT_PROMPT_EXECUTABLE='haskell'
+GIT_PROMPT_EXECUTABLE='shell'
 
 # PATH
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin"
@@ -18,12 +18,12 @@ export PATH="/usr/local/opt:"$PATH
 export PATH="~/Library:"$PATH
 export PATH="~/Library/Android/sdk/tools:"$PATH
 export PATH="~/Library/Android/sdk/platform-tools:"$PATH
-export PATH="/Users/jesse/.oh-my-zsh/plugins/zsh-git-prompt/src/.bin:"$PATH
+export PATH="/Users/jesse/.oh-my-zsh/plugins/zsh-git-prompt:"$PATH
 export PATH="/usr/local/go/bin:"$PATH
 
 # Exports
 export EDITOR=nvim
-export GOPATH=$HOME/Repos/go
+export GOPATH=$HOME/Code/go
 export MANPATH=/usr/local/man:$MANPATH
 export NVM_DIR=$HOME/.nvm
 export TERM=xterm-256color
@@ -160,6 +160,10 @@ alias tkill="tmux kill-session -t $1"
 alias tls="tmux ls"
 alias ta="tmux attach -t $1"
 alias ts="tmux switch -t $1"
+
+## MICROK8S
+alias mk="microk8s $1"
+alias kc="kubectl $1"
 
 ## ESP IDF Dev
 alias idfinit=". ~/esp/esp-idf/export.sh && ESPPORT=/dev/cu.usbserial-0001"
