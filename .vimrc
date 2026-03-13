@@ -29,7 +29,7 @@ set statusline+=%#warningmsg#
 set statusline+=%*
 
 " VIM plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('$HOME/.vim/plugged')
   Plug 'sonph/onehalf', { 'rtp': 'vim' }          " One-half color scheme
   Plug 'itchyny/lightline.vim'                    " Status line
   Plug 'ap/vim-buftabline'                        " Buffer tabs
@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
   Plug 'scrooloose/nerdcommenter'                 " Quick Comments
   Plug 'ggreer/the_silver_searcher'               " Fuzy find in file
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'                         " Fuzzy find in path
   Plug 'pangloss/vim-javascript'                  " JSX prereq
   Plug 'mxw/vim-jsx'                              " JSX highlighter
@@ -124,8 +124,8 @@ augroup ALEAutoFix
   autocmd TextChanged,InsertLeave *.js,*.jsx,*.tsx,*.json ALEFix
 
 " Vim plug auto-load
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('$HOME/.vim/autoload/plug.vim'))
+  silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+  autocmd VimEnter * PlugInstall --sync | source $HOME/.vimrc
 endif

@@ -30,7 +30,7 @@ export GOPATH=$HOME/Code/go
 export MANPATH=/usr/local/man:$MANPATH
 export NVM_DIR=$HOME/.nvm
 export TERM=xterm-256color
-export WORKON_HOME=~/.virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
 export ZSH=/Users/jesse/.oh-my-zsh
 
 # AWS
@@ -41,11 +41,11 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Sources
 source $(brew --prefix nvm)/nvm.sh
-source ~/.oh-my-zsh/oh-my-zsh.sh
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 # Third party Plugins (You will need to git clone these to your plugins directory)
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
+source $HOME/.oh-my-zsh/plugins/zsh-git-prompt/zshrc.sh
 
 # Plugins
 plugins=(
@@ -114,29 +114,29 @@ alias lls="ll -S"  # sort by file size
 alias lt="ll -t"   # sort by last modified
 alias llr="ll -R"  # recursive w/ subdirectories
 alias cfg="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias htb="sudo openvpn --config ~/Downloads/jesseflorig.ovpn"
+alias htb="sudo openvpn --config $HOME/Downloads/jesseflorig.ovpn"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
 ## Configs
-alias grc="vi ~/.config/ghostty/config"                      # Modify the Ghostty config
-alias zrc="vi ~/.zshrc"                                      # Modify the Zsh config
-alias trc="vi ~/.tmux.conf"                                  # Modify the Tmux config
-alias src="source ~/.zshrc && tmux source-file ~/.tmux.conf" # Reload the Zsh config
-alias vrc="vi ~/.vimrc"                                      # Modify the Vim config
-alias sshrc="vi ~/.ssh/config"                               # Modify the SSH config
-alias brc="vi ~/bootstrap.sh"                                # Modify the Bootstrap script
-alias bootstrap=". ~/bootstrap.sh"                           # Run the Bootstrap script
+alias grc="vi $HOME/.config/ghostty/config"                      # Modify the Ghostty config
+alias zrc="vi $HOME/.zshrc"                                      # Modify the Zsh config
+alias trc="vi $HOME/.tmux.conf"                                  # Modify the Tmux config
+alias src="source $HOME/.zshrc && tmux source-file $HOME/.tmux.conf" # Reload the Zsh config
+alias vrc="vi $HOME/.vimrc"                                      # Modify the Vim config
+alias sshrc="vi $HOME/.ssh/config"                               # Modify the SSH config
+alias brc="vi $HOME/bootstrap.sh"                                # Modify the Bootstrap script
+alias bootstrap=". $HOME/bootstrap.sh"                           # Run the Bootstrap script
 
 ## Dotfiles management
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias dotfilesinit="dotfiles config --local status.showUntrackedFiles no"
 
 ## Directories
-alias docs="cd ~/Dropbox/Documents"
+alias docs="cd $HOME/Dropbox/Documents"
 alias goroot="cd $GOPATH/src/github.com/jesseflorig"
-alias repos="cd ~/Code"
-alias downloads="cd ~/Downloads"
-alias zplug="cd ~/.oh-my-zsh/plugins"
+alias repos="cd $HOME/Code"
+alias downloads="cd $HOME/Downloads"
+alias zplug="cd $HOME/.oh-my-zsh/plugins"
 
 ## Git
 alias gb="git branch"
@@ -157,7 +157,7 @@ alias mk="microk8s $1"
 alias kc="kubectl $1"
 
 ## ESP IDF Dev
-alias idfinit=". ~/esp/esp-idf/export.sh && ESPPORT=/dev/cu.usbserial-0001"
+alias idfinit=". $HOME/esp/esp-idf/export.sh && ESPPORT=/dev/cu.usbserial-0001"
 alias idf="idf.py"
 alias idfc="idf.py menuconfig"
 alias idfb="idf.py build"
@@ -193,7 +193,7 @@ RPROMPT='$(git_super_status)'
 # Init Commands
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # Load NVM
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # Load NVM BASH completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # bun completions
 [ -s "/Users/jesse/.bun/_bun" ] && source "/Users/jesse/.bun/_bun"

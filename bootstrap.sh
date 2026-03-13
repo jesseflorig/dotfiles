@@ -1,20 +1,18 @@
 #!/bin/zsh
-# 
+#
 # Bootstrap script for setting up a new OSX machine
-# 
+#
+# Param 1: New hostname
+#
 # This should be idempotent so it can be run multiple times.
-#
-# Some apps don't have a cask and so still need to be installed by hand. These
-# include:
-#
-# - Twditter (app store)
-# - Postgres.app (http://postgresapp.com/)
 #
 # Notes:
 #
 # - If installing full Xcode, it's better to install that first from the app
 #   store before running the bootstrap script. Otherwise, Homebrew can't access
-#   the Xcode libraries as the agreement hasn't been accepted yet.
+#   the Xcode libraries as the agreement hasn't been accepted yet:
+#
+#   sudo xcodebuild -license accept
 #
 # Reading:
 #
@@ -44,13 +42,17 @@ then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# Accept XCode license
+echo "Accepting XCode license..."
+sudo xcodebuild -license accept
+
 # Update homebrew recipes
 brew update
 
 PACKAGES=(
     awscli
     azure-cli
-    git 
+    git
     kubernetes-cli
     markdown
     node
@@ -72,9 +74,6 @@ PACKAGES=(
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
 
-echo "Cleaning up..."
-brew cleanup
-
 echo "Installing cask..."
 brew tap homebrew/cask
 CASKS=(
@@ -86,11 +85,10 @@ CASKS=(
     docker
     dropbox
     firefox
+    ghostty
     # google-chrome
     google-cloud-sdk
     google-drive
-    iterm2
-    # microsoft-teams
     obs
     protonvpn
     slack
@@ -104,7 +102,7 @@ CASKS=(
 )
 
 echo "Installing cask apps..."
-brew install ${CASKS[@]}
+brew install --cask ${CASKS[@]}
 
 echo "Installing fonts..."
 brew tap homebrew/cask-fonts
@@ -115,6 +113,9 @@ FONTS=(
     font-clear-sans
 )
 brew install ${FONTS[@]}
+
+echo "Cleaning up brew files..."
+brew cleanup
 
 if ! which pip3 > /dev/null
 then
@@ -130,36 +131,30 @@ PYTHON_PACKAGES=(
 )
 sudo pip3 install ${PYTHON_PACKAGES[@]}
 
-echo "Installing global npm packages..."
-GLOBAL_NPM_PACKAGES=(
-    yarn
-)
-npm install ${GLOBAL_NPM_PACKAGES[@]} -g
+#echo "Installing global npm packages..."
+#GLOBAL_NPM_PACKAGES=(
+#)
+#npm install ${GLOBAL_NPM_PACKAGES[@]} -g
 
 echo "Configuring OSX..."
 
 # Set host name
-sudo scutil --set HostName MBP21
+NEWHOST = "${1:-MBP}"
+sudo scutil --set HostName $NEWHOST
 
 # Show filename extensions by default
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# TODO: Set default terminal
 # TODO: Remap CAPS_LOCK to ESC
 
 echo "Installing Vim plugins..."
 vim +'PlugInstall --sync' +qa
 
-echo "Configuring iTerm2..."
-
-# TODO: Add iterm2 settings plist to dotfiles project
-# Overwrite ~/Library/Prferences/com.googlecode.iterm2.plist
-
-echo "Configuring VSCode..."
-
-# TODO: Add vscode settings to dotfiles project
-
 echo "Creating folder structure..."
 
 [[ ! -d Code ]] && mkdir Code
+
+# TODO: Configure Dropbox
 
 echo "Bootstrapping complete 🤙"
