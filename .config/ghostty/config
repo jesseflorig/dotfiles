@@ -1,0 +1,24 @@
+# Visual
+font-family = "Fira Mono"
+theme = "Arcoiris"
+background-opacity = 0.8
+background-blur = macos-glass-clear
+window-decoration = false
+macos-titlebar-style = hidden
+
+# Shaders
+# custom-shader = ./shaders/tft.gsl
+# custom-shader = ./shaders/bettercrt.gsl
+# custom-shader = ./shaders/retro-terminal.gsl
+# custom-shader = ./shaders/bloom.gsl
+# custom-shader = ./shaders/matrix.gsl
+# custom-shader = ./shaders/matrix-hall.gsl
+
+# General
+shell-integration-features = no-cursor,sudo,no-title
+clipboard-trim-trailing-spaces = true
+cursor-style = block
+mouse-hide-while-typing = true
+
+# Keybinds
+keybind = global:opt+space=toggle_visibility

@@ -15,11 +15,14 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin"
 export PATH="/usr/local/bin:/usr/local/sbin:"$PATH
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:"$PATH
 export PATH="/usr/local/opt:"$PATH
-export PATH="~/Library:"$PATH
-export PATH="~/Library/Android/sdk/tools:"$PATH
-export PATH="~/Library/Android/sdk/platform-tools:"$PATH
-export PATH="/Users/jesse/.oh-my-zsh/plugins/zsh-git-prompt:"$PATH
 export PATH="/usr/local/go/bin:"$PATH
+export PATH=$HOME"/Library:"$PATH
+export PATH=$HOME"/Library/Android/sdk/tools:"$PATH
+export PATH=$HOME"/Library/Android/sdk/platform-tools:"$PATH
+export PATH=$HOME"/.local/bin:"$PATH
+export PATH=$HOME"/.bun/bin:"$PATH
+export PATH=$HOME"/.platformio/penv/bin:"$PATH
+export PATH=$HOME"/.oh-my-zsh/plugins/zsh-git-prompt:"$PATH
 
 # Exports
 export EDITOR=nvim
@@ -32,6 +35,9 @@ export ZSH=/Users/jesse/.oh-my-zsh
 
 # AWS
 export AWS_DEFAULT_PROFILE=default
+
+# FNM
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Sources
 source $(brew --prefix nvm)/nvm.sh
@@ -84,26 +90,11 @@ host_emoji(){
 }
 
 path_emoji(){
-  case $1 in
-    /)
-      echo 🌱
-      ;;
-    /Users/jesse)
-      echo 🏠
-      ;;
-    /Users/jesse/Code)
-      echo 🌎
-      ;;
-    /Users/jesse/Code/belch)
-      echo 🤮
-      ;;
-    /Users/jesse/Code/cabal)
-      echo 🔮
-      ;;
-    *)
-      echo %~
-      ;;
-  esac
+  emoji_dir=${PWD}
+  emoji_dir=${emoji_dir/\/Users\/jesse\/Code/🌎}
+  emoji_dir=${emoji_dir/\/Users\/jesse/🏠}
+  emoji_dir=${emoji_dir/#\//🌱}
+  echo $emoji_dir
 }
 
 chrome(){ # Open file in Google Chrome
@@ -127,14 +118,14 @@ alias htb="sudo openvpn --config ~/Downloads/jesseflorig.ovpn"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 
 ## Configs
-alias hrc="vi ~/.hyper.js"      # Modify the Hyper Terminal config
-alias src="source ~/.zshrc"     # Reload the Zsh config
-alias trc="vi ~/.tmux.conf"     # Modify the Tmux config
-alias vrc="vi ~/.vimrc"         # Modify the Vim config
-alias zrc="vi ~/.zshrc"         # Modify the Zsh config
-alias sshrc="vi ~/.ssh/config"  # Modify the SSH config
-alias brc="vi ~/bootstrap.sh"   # Modify the Bootstrap script
-alias bootstrap=". ~/bootstrap.sh" # Run the Bootstrap script
+alias grc="vi ~/.config/ghostty/config"                      # Modify the Ghostty config
+alias zrc="vi ~/.zshrc"                                      # Modify the Zsh config
+alias trc="vi ~/.tmux.conf"                                  # Modify the Tmux config
+alias src="source ~/.zshrc && tmux source-file ~/.tmux.conf" # Reload the Zsh config
+alias vrc="vi ~/.vimrc"                                      # Modify the Vim config
+alias sshrc="vi ~/.ssh/config"                               # Modify the SSH config
+alias brc="vi ~/bootstrap.sh"                                # Modify the Bootstrap script
+alias bootstrap=". ~/bootstrap.sh"                           # Run the Bootstrap script
 
 ## Dotfiles management
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -196,10 +187,21 @@ local ps=" "                       # prompt string
 local ue=$(user_emoji $(whoami))
 local he=$(host_emoji $(hostname -s))
 
-PROMPT='${ue}${he}$(path_emoji $(pwd))${ps}'
+PROMPT='${ue}${he}:$(path_emoji $(pwd))${ps}'
 RPROMPT='$(git_super_status)'
 
 # Init Commands
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # Load NVM
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # Load NVM BASH completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/Users/jesse/.bun/_bun" ] && source "/Users/jesse/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
