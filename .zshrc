@@ -173,7 +173,7 @@ alias restart="sudo shutdown -r now"
 alias esrun="repos && cd elasticsearch/bin && elasticsearch"
 
 # Variables
-ZSH_THEME="mh"
+ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
