@@ -1,10 +1,14 @@
 # Visual
 font-family = "Fira Mono"
-theme = "Arcoiris"
-background-opacity = 0.8
+theme = wombat
+background-opacity = 0.9
 background-blur = macos-glass-clear
 window-decoration = false
 macos-titlebar-style = hidden
+
+# Cursor
+cursor-style = block
+custom-shader = ./shaders/cursor-sweep.glsl
 
 # Shaders
 # custom-shader = ./shaders/tft.gsl
@@ -17,8 +21,8 @@ macos-titlebar-style = hidden
 # General
 shell-integration-features = no-cursor,sudo,no-title
 clipboard-trim-trailing-spaces = true
-cursor-style = block
 mouse-hide-while-typing = true
+macos-option-as-alt = true
 
 # Keybinds
 keybind = global:opt+space=toggle_visibility
