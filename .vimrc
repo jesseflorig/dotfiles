@@ -3,8 +3,6 @@
 " Purpose: VIM config file
 "=========================
 
-syntax on
-
 " Settings
 set backspace=indent,eol,start
 set laststatus=2
@@ -30,7 +28,6 @@ set statusline+=%*
 
 " VIM plugins
 call plug#begin('$HOME/.vim/plugged')
-  Plug 'sonph/onehalf', { 'rtp': 'vim' }          " One-half color scheme
   Plug 'itchyny/lightline.vim'                    " Status line
   Plug 'ap/vim-buftabline'                        " Buffer tabs
   Plug 'qpkorr/vim-bufkill'                       " Retain window after buffer kill
@@ -46,12 +43,12 @@ call plug#begin('$HOME/.vim/plugged')
   Plug 'tasn/vim-tsx'                             " TypeScript highlighter
 call plug#end()
 
+" Theme
+syntax on
+colorscheme habamax
+
 " Plugged
 nmap <C-P> :PlugInstall<CR>
-
-" Color scheme
-colorscheme onehalfdark
-let g:lightline = { 'colorscheme': 'onehalfdark' }
 
 " ALE config
 let g:ale_lint_on_insert_leave = 1
@@ -129,3 +126,6 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $HOME/.vimrc
 endif
+
+" Reset cursor on exit
+autocmd VimLeave * silent !echo -ne "\033]12;default\007"
